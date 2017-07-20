@@ -1,0 +1,66 @@
+using UnityEngine;
+
+namespace BevTree
+{
+	public enum LogLevel
+	{
+		Info, Warning, Error
+	}
+
+	[AddNodeMenu("Action/Util/DebugLog")]
+	public class DebugLog : Action
+	{
+		private LogLevel m_level;
+		private string m_message;
+		
+		public LogLevel Level
+		{
+			get
+			{
+				return m_level;
+			}
+			set
+			{
+				m_level = value;
+			}
+		}
+		
+		public string Message
+		{
+			get
+			{
+				return m_message;
+			}
+			set
+			{
+				m_message = value;
+			}
+		}
+
+		public override string Title
+		{
+			get
+			{
+				return "Debug";
+			}
+		}
+
+		protected override RunningStatus OnTick(Context context)
+		{
+			switch (m_level)
+			{
+				case LogLevel.Info:
+					Debug.Log(m_message);
+					break;
+				case LogLevel.Warning:
+					Debug.LogWarning(m_message);
+					break;
+				case LogLevel.Error:
+					Debug.LogError(m_message);
+					break;
+			}
+
+			return RunningStatus.Success;
+		}
+	}
+}
