@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5baa0511ea3ffc04fa162de9e1771bab, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  m_serializedData: '{"$type":"BevTree.BehaviourTree, Assembly-CSharp","guidString":"811544d0f48b4fd883e7807750b13e0d","title":"","description":"","Root":{"Position":{"x":0,"y":0},"Comment":null,"Weight":0,"Breakpoint":"None","Child":{"$type":"BevTree.Sequence,
+    Assembly-CSharp","Position":{"x":150,"y":0},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.Selector,
+    Assembly-CSharp","Position":{"x":330,"y":-40},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.DebugLog,
+    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":500,"y":-150},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]}],"__UniqueID":"4888412516821551425","Constraints":[],"Services":[]},{"$type":"BevTree.Random,
+    Assembly-CSharp","Position":{"x":320,"y":130},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.Fail,
+    Assembly-CSharp","Position":{"x":540,"y":70},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"4858938836667689278","Constraints":[],"Services":[]},{"$type":"BevTree.Succeed,
+    Assembly-CSharp","Position":{"x":560,"y":230},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5344793794909573149","Constraints":[],"Services":[]}],"__UniqueID":"5114158346315369709","Constraints":[],"Services":[]}],"__UniqueID":"5347131604812780483","Constraints":[],"Services":[]},"__UniqueID":"5699154588342663963","Constraints":[],"Services":[]}}'
+  m_canvasArea:
+    serializedVersion: 2
+    x: -500
+    y: -500
+    width: 1774
+    height: 1238
+  m_canvasPosition: {x: 119, y: 285}
+  m_subtrees: []
+  treeUidString: 811544d0f48b4fd883e7807750b13e0d
+  title: 
+  description: 

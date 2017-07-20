@@ -428,7 +428,7 @@ namespace BevTreeEditor
 			if (Selection.activeObject == null || (Selection.activeObject as GameObject) == null)
 				return;
 
-			Actor actor = (Selection.activeObject as GameObject).GetComponent<Actor>();
+			/*Actor actor = (Selection.activeObject as GameObject).GetComponent<Actor>();
 			if (actor == null)
 				return;
 
@@ -453,7 +453,7 @@ namespace BevTreeEditor
 			{
 				BTDebugHelper.CurrentDebugRootTree = tree;
 				OpenDebug(m_btAsset, tree);
-			}
+			}*/
 
 		}
 

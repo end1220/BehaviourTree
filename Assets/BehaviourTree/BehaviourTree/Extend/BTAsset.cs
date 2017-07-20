@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BevTree
 {
-	[CreateAssetMenu(menuName = "TwGame/Behaviour Tree", order = 1)]
+	[CreateAssetMenu(menuName = "Behaviour Tree", order = 1)]
 	public class BTAsset : ScriptableObject
 	{
 		[System.Serializable]

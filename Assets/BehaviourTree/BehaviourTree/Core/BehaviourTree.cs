@@ -183,8 +183,8 @@ namespace BevTree
 	/// </summary>
 	public class Context
 	{
-		public ActorController _actorCtroller;
-		public ActorController actorController { get { return _actorCtroller; } }
+		public object _actorCtroller;
+		public object actorController { get { return _actorCtroller; } }
 
 		private BehaviourTree _tree;
 		public BehaviourTree tree { get { return _tree; } }
@@ -201,7 +201,7 @@ namespace BevTree
 		public Dictionary<long, NodeStack> _travelNodes = new Dictionary<long, NodeStack>();
 
 
-		public void SetAgent(ActorController agent)
+		public void SetAgent(object agent)
 		{
 			this._actorCtroller = agent;
 		}
