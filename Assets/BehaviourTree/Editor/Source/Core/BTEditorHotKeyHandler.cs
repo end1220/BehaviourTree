@@ -54,6 +54,8 @@ namespace BevTreeEditor
 			{
 				if (evt.keyCode == KeyCode.LeftControl)
 					bCtrlHold = false;
+				else if (evt.keyCode == KeyCode.Delete)
+					OnDeleteNode();
 			}
 		}
 
@@ -66,21 +68,17 @@ namespace BevTreeEditor
 
 		private void OnCopyNode()
 		{
-			int selectedCount = m_graph.GetSelectedNodeCount();
-			if (selectedCount > 0)
-			{
-				BTEditorGraphNode targetNode = m_graph.GetSelectedNode(selectedCount - 1);
+			BTEditorGraphNode targetNode = m_graph.GetLastSelectedNode();
+			if (targetNode != null)
 				m_graph.OnCopyNode(targetNode);
-			}
 		}
 
 	
 		private void OnCutNode()
 		{
-			int selectedCount = m_graph.GetSelectedNodeCount();
-			if (selectedCount > 0)
+			BTEditorGraphNode targetNode = m_graph.GetLastSelectedNode();
+			if (targetNode != null)
 			{
-				BTEditorGraphNode targetNode = m_graph.GetSelectedNode(selectedCount - 1);
 				m_graph.OnCopyNode(targetNode);
 				m_graph.OnNodeDelete(targetNode);
 			}
@@ -89,18 +87,17 @@ namespace BevTreeEditor
 
 		private void OnPasteNode()
 		{
-			int selectedCount = m_graph.GetSelectedNodeCount();
-			if (selectedCount > 0)
-			{
-				BTEditorGraphNode targetNode = m_graph.GetSelectedNode(selectedCount - 1);
+			BTEditorGraphNode targetNode = m_graph.GetLastSelectedNode();
+			if (targetNode != null)
 				m_graph.OnPasteNode(targetNode);
-			}
 		}
 
 
 		private void OnDeleteNode()
 		{
-			Debug.LogError("Delete");
+			BTEditorGraphNode targetNode = m_graph.GetLastSelectedNode();
+			if (targetNode != null)
+				m_graph.OnNodeDelete(targetNode);
 		}
 
 

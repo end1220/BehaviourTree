@@ -564,5 +564,21 @@ namespace BevTreeEditor
 			return m_selection[index];
 		}
 
+		public BTEditorGraphNode GetFirstSelectedNode()
+		{
+			if (m_selection.Count > 0)
+				return m_selection[0];
+			else
+				return null;
+		}
+
+		public BTEditorGraphNode GetLastSelectedNode()
+		{
+			if (m_selection.Count > 0)
+				return m_selection[m_selection.Count - 1];
+			else
+				return null;
+		}
+
 	}
 }
