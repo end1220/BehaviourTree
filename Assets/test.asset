@@ -14,12 +14,10 @@ MonoBehaviour:
   m_serializedData: '{"$type":"BevTree.BehaviourTree, Assembly-CSharp","guidString":"ae6cafbb18174594817078bffbddf621","title":"","description":"","Root":{"Position":{"x":0,"y":0},"Comment":null,"Weight":0,"Breakpoint":"None","Child":{"$type":"BevTree.Sequence,
     Assembly-CSharp","Position":{"x":150,"y":0},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.Selector,
     Assembly-CSharp","Position":{"x":330,"y":-40},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.DebugLog,
-    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":500,"y":-150},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]},{"$type":"BevTree.DebugLog,
-    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":670,"y":-130},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]},{"$type":"BevTree.Succeed,
+    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":500,"y":-150},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]},{"$type":"BevTree.Succeed,
     Assembly-CSharp","Position":{"x":640,"y":-10},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5344793794909573149","Constraints":[],"Services":[]}],"__UniqueID":"4888412516821551425","Constraints":[],"Services":[]},{"$type":"BevTree.Random,
     Assembly-CSharp","Position":{"x":320,"y":130},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.Fail,
     Assembly-CSharp","Position":{"x":540,"y":70},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"4858938836667689278","Constraints":[],"Services":[]},{"$type":"BevTree.DebugLog,
-    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":540,"y":160},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]},{"$type":"BevTree.DebugLog,
     Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":540,"y":330},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]}],"__UniqueID":"5114158346315369709","Constraints":[],"Services":[]}],"__UniqueID":"5347131604812780483","Constraints":[],"Services":[]},"__UniqueID":"5699154588342663963","Constraints":[],"Services":[]}}'
   m_canvasArea:
     serializedVersion: 2

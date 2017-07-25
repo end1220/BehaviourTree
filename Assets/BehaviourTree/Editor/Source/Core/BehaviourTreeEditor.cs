@@ -408,19 +408,7 @@ namespace BevTreeEditor
 			BTAsset asset = EditorUtility.InstanceIDToObject(instanceID) as BTAsset;
 			if(asset != null)
 			{
-				if (EditorApplication.isPlaying)
-				{
-					BehaviourTree tree = BTDebugHelper.FindTree(asset.TreeUidString);
-					if (tree != null)
-					{
-						BTDebugHelper.CurrentDebugRootTree = tree;
-						OpenDebug(asset, tree);
-						return true;
-					}
-				}
-
 				Open(asset);
-
 				return true;
 			}
 
