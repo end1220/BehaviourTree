@@ -431,35 +431,11 @@ namespace BevTreeEditor
 		// Debugging behaviours of selected actor.
 		private void SetupBTDebugging()
 		{
-			if (Selection.activeObject == null || (Selection.activeObject as GameObject) == null)
-				return;
-
-			/*Actor actor = (Selection.activeObject as GameObject).GetComponent<Actor>();
-			if (actor == null)
-				return;
-
-			if (actor.controller == null)
-				return;
-
-			BTDebugHelper.DebugContext = actor.controller.GetComponent<BevTreeComponent>().context;
-
-			BTDebugHelper.ClearHotTree();
-
-			int count = actor.controller.GetComponent<BevTreeComponent>().GetTreeCount();
-			for (int i = 0; i < count; ++i)
-			{
-				BehaviourTree t = actor.controller.GetComponent<BevTreeComponent>().GetTree(i);
-				BTDebugHelper.AddHotTree(t);
-			}
-
-			// If m_btAsset is one of the runtime trees of the actor, 
-			// show the runtime tree in the editor.
-			BehaviourTree tree = BTDebugHelper.FindTree(m_btAsset.TreeUidString);
+			BehaviourTree tree = BTDebugHelper.TrySelectedObjectDebugging(m_btAsset.TreeUidString);
 			if (tree != null)
 			{
-				BTDebugHelper.CurrentDebugRootTree = tree;
 				OpenDebug(m_btAsset, tree);
-			}*/
+			}
 
 		}
 
