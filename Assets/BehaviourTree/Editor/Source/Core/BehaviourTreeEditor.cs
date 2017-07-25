@@ -16,6 +16,7 @@ namespace BevTreeEditor
 		private BTEditorGrid m_grid;
 		private BTEditorGraph m_graph;
 		private BTEditorCanvas m_canvas;
+		private BTEditorHotKeyHandler m_hotkeyHandler;
 		private bool m_isDisposed;
 
 		public BTNavigationHistory NavigationHistory
@@ -40,6 +41,10 @@ namespace BevTreeEditor
 			{
 				m_canvas = new BTEditorCanvas();
 				BTEditorCanvas.Current = m_canvas;
+			}
+			if (m_hotkeyHandler == null)
+			{
+				m_hotkeyHandler = new BTEditorHotKeyHandler(m_graph);
 			}
 			if(m_grid == null)
 			{
@@ -252,6 +257,7 @@ namespace BevTreeEditor
 				m_grid.DrawGUI(position.size);
 				m_graph.DrawGUI(canvasRect);
 				m_canvas.HandleEvents(canvasRect, position.size);
+				m_hotkeyHandler.HandlerEvents();
 				DrawNavigationHistory(navHistoryRect);
 				DrawFooter(footerRect);
 				DrawOptions(optionsRect);

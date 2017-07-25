@@ -132,9 +132,9 @@ namespace BevTreeEditor
 
 		private void HandleEvents(Rect screenRect)
 		{
-			if(BTEditorCanvas.Current.Event.type == EventType.MouseDown && BTEditorCanvas.Current.Event.button == SELECT_MOUSE_BUTTON)
+			if (BTEditorCanvas.Current.Event.type == EventType.MouseDown && BTEditorCanvas.Current.Event.button == SELECT_MOUSE_BUTTON)
 			{
-				if(screenRect.Contains(BTEditorCanvas.Current.Event.mousePosition))
+				if (screenRect.Contains(BTEditorCanvas.Current.Event.mousePosition))
 				{
 					ClearSelection();
 
@@ -143,11 +143,11 @@ namespace BevTreeEditor
 					BTEditorCanvas.Current.Event.Use();
 				}
 			}
-			else if(BTEditorCanvas.Current.Event.type == EventType.MouseDrag && BTEditorCanvas.Current.Event.button == SELECT_MOUSE_BUTTON)
+			else if (BTEditorCanvas.Current.Event.type == EventType.MouseDrag && BTEditorCanvas.Current.Event.button == SELECT_MOUSE_BUTTON)
 			{
-				if(screenRect.Contains(BTEditorCanvas.Current.Event.mousePosition))	
+				if (screenRect.Contains(BTEditorCanvas.Current.Event.mousePosition))
 				{
-					if(!m_drawSelectionBox && m_canBeginBoxSelection)
+					if (!m_drawSelectionBox && m_canBeginBoxSelection)
 					{
 						m_drawSelectionBox = true;
 					}
@@ -155,20 +155,20 @@ namespace BevTreeEditor
 					BTEditorCanvas.Current.Event.Use();
 				}
 			}
-			else if(BTEditorCanvas.Current.Event.type == EventType.MouseUp)
+			else if (BTEditorCanvas.Current.Event.type == EventType.MouseUp)
 			{
-				if(screenRect.Contains(BTEditorCanvas.Current.Event.mousePosition))
+				if (screenRect.Contains(BTEditorCanvas.Current.Event.mousePosition))
 				{
-					if(BTEditorCanvas.Current.Event.button == SELECT_MOUSE_BUTTON)
+					if (BTEditorCanvas.Current.Event.button == SELECT_MOUSE_BUTTON)
 					{
-						if(m_drawSelectionBox)
+						if (m_drawSelectionBox)
 						{
 							m_drawSelectionBox = false;
 						}
 
 						BTEditorCanvas.Current.Event.Use();
 					}
-					else if(BTEditorCanvas.Current.Event.button == CONTEXT_MOUSE_BUTTON)
+					else if (BTEditorCanvas.Current.Event.button == CONTEXT_MOUSE_BUTTON)
 					{
 						GenericMenu menu = BTContextMenuFactory.CreateGraphContextMenu(this);
 						menu.DropDown(new Rect(BTEditorCanvas.Current.Event.mousePosition, Vector2.zero));
@@ -179,6 +179,7 @@ namespace BevTreeEditor
 
 				m_canBeginBoxSelection = false;
 			}
+
 		}
 
 		public void OnPushNodeGroup(BTEditorGraphNode node)
@@ -552,5 +553,16 @@ namespace BevTreeEditor
 
 			return graph;
 		}
+
+		public int GetSelectedNodeCount()
+		{
+			return m_selection.Count;
+		}
+
+		public BTEditorGraphNode GetSelectedNode(int index)
+		{
+			return m_selection[index];
+		}
+
 	}
 }
