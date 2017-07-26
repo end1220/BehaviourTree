@@ -246,6 +246,7 @@ namespace BevTreeEditor
 		{
 			if(m_btAsset != null)
 			{
+				Rect topMenuRect = new Rect(0.0f, 0.0f, position.width, 40.0f);
 				Rect navHistoryRect = new Rect(0.0f, 0.0f, position.width, 20.0f);
 				Rect optionsRect = new Rect(position.width - 20.0f, 0.0f, 20.0f, 20.0f);
 				Rect footerRect = new Rect(0.0f, position.height - 18.0f, position.width, 20.0f);
@@ -257,7 +258,8 @@ namespace BevTreeEditor
 				m_graph.DrawGUI(canvasRect);
 				m_canvas.HandleEvents(canvasRect, position.size);
 				m_hotkeyHandler.HandlerEvents();
-				DrawNavigationHistory(navHistoryRect);
+				DrawTopMenu(topMenuRect);
+				//DrawNavigationHistory(navHistoryRect);
 				DrawFooter(footerRect);
 				DrawOptions(optionsRect);
 				DrawDebug(debugRect);
@@ -267,6 +269,12 @@ namespace BevTreeEditor
 					OnRepaint();
 				}
 			}
+		}
+
+
+		private void DrawTopMenu(Rect screenRect)
+		{
+			EditorGUI.LabelField(screenRect, "", BTEditorStyle.EditorFooter);
 		}
 
 		private void DrawNavigationHistory(Rect screenRect)
