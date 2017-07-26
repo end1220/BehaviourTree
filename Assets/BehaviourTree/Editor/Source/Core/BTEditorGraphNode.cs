@@ -356,7 +356,7 @@ namespace BevTreeEditor
 			if (!m_node.IsConstraintsExpanded)
 			{
 				Rect consLabelPos = new Rect(cnsFoldoutPos.x + 20, cnsFoldoutPos.y + constraintOffsetY, 100, 20);
-				EditorGUI.LabelField(consLabelPos, "Constraints", BTEditorStyle.NodeConstraintLabel);
+				EditorGUI.LabelField(consLabelPos, "<color=white>Constraints</color>", BTEditorStyle.NodeConstraintLabel);
 			}
 			else
 			{
@@ -369,7 +369,6 @@ namespace BevTreeEditor
 						if (BTDebugHelper.DebugContext._travelNodes[treeId].Contains(m_node))
 						{
 							bits = BTDebugHelper.DebugContext.blackboard.GetInt(treeId, m_node.guid, "Constraints");
-							
 						}
 					}
 				}

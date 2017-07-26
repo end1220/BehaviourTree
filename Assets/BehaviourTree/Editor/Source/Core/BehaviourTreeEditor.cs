@@ -251,7 +251,6 @@ namespace BevTreeEditor
 				Rect footerRect = new Rect(0.0f, position.height - 18.0f, position.width, 20.0f);
 				Rect canvasRect = new Rect(0.0f, navHistoryRect.yMax, position.width, position.height - (footerRect.height + navHistoryRect.height));
 				Rect debugRect = new Rect(optionsRect.x - 60, 0.0f, 60.0f, 20.0f);
-				//Rect treeInfoRect = new Rect(debugRect.x - 30, 0.0f, 20.0f, 20.0f);
 				
 				BTEditorStyle.EnsureStyle();
 				m_grid.DrawGUI(position.size);
@@ -262,7 +261,6 @@ namespace BevTreeEditor
 				DrawFooter(footerRect);
 				DrawOptions(optionsRect);
 				DrawDebug(debugRect);
-				//DrawTreeInfo(treeInfoRect);
 
 				if(m_canvas.IsDebuging)
 				{
