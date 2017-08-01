@@ -298,7 +298,9 @@ namespace BevTreeEditor
 			BehaviourNode node = BTUtils.CreateNode(newType);
 			if(node != null)
 			{
-				if(node is Decorator)
+				node.Constraints.AddRange(target.Node.Constraints);
+
+				if (node is Decorator)
 				{
 					Decorator original = target.Node as Decorator;
 					Decorator decorator = node as Decorator;
@@ -313,7 +315,7 @@ namespace BevTreeEditor
 					for(int i = 0; i < original.ChildCount; i++)
 						composite.AddChild(original.GetChild(i));
 				}
-				
+
 				BTUndoSystem.BeginUndoGroup("Changed node type");
 				BTUndoSystem.RegisterUndo(new UndoNodeDeleted(target));
 				target.OnDelete();
