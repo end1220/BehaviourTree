@@ -19,14 +19,15 @@ namespace BevTree
 
 		protected override RunningStatus OnTick(Context context)
 		{
+			RunningStatus status = RunningStatus.Success;
 			for (int i = 0; i < m_children.Count; ++i)
 			{
-				RunningStatus ret = m_children[i]._tick(context);
-				if (ret != RunningStatus.Failure)
-					return ret;
+				status = m_children[i]._tick(context);
+				if (status != RunningStatus.Failure)
+					return status;
 			}
 
-			return RunningStatus.Running;
+			return status;
 		}
 	}
 
