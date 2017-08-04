@@ -1,24 +1,22 @@
-﻿
+
 namespace BevTree
 {
-	[AddNodeMenu("Action/Util/Wait")]
-	public class Wait : Action
+	[AddNodeMenu("Decorator/Delay")]
+	public class Delay : Decorator
 	{
 		public int millseconds = 0;
 
 
-		public Wait()
+		public Delay()
 		{
 
 		}
 
 
-		public Wait(float seconds)
-			: base()
+		public Delay(BehaviourNode node) :
+			base(node)
 		{
-			if (seconds < 0)
-				seconds = 0;
-			millseconds = (int)(1000 * seconds);
+
 		}
 
 
@@ -34,12 +32,11 @@ namespace BevTree
 			long beginTime = context.blackboard.GetLong(context.tree.guid, this.guid, "beginTime");
 			if (System.DateTime.Now.Ticks / 10000 > beginTime + millseconds)
 			{
-				return RunningStatus.Success;
+				return m_child._tick(context);
 			}
 
 			return RunningStatus.Running;
 		}
-
 
 	}
 
