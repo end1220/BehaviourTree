@@ -274,6 +274,8 @@ namespace BevTree
 
 		public virtual void OnBeforeSerialize(BTAsset btAsset)
 		{
+			guid = BTUtils.GenUniqueGUID();
+
 			foreach (var constraint in m_constraints)
 				constraint.OnBeforeSerialize(btAsset);
 			foreach (var service in m_services)

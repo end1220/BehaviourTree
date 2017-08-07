@@ -18,6 +18,11 @@ namespace BevTree
 			return Guid.NewGuid().ToString("N");
 		}
 
+		public static long GenUniqueGUID()
+		{
+			return GuidGen.GenUniqueGUID();
+		}
+
 		public static bool IsSameOrSubclass(this Type potentialSubclass, Type potentialBase)
 		{
 			return potentialSubclass.IsSubclassOf(potentialBase) || (potentialSubclass == potentialBase);
@@ -48,7 +53,7 @@ namespace BevTree
 				if(node != null)
 				{
 					FieldInfo uniqueIDField = typeof(BehaviourNode).GetField("m_guid", BindingFlags.Instance | BindingFlags.NonPublic);
-					long uniqueID = GuidGen.GenUniqueGUID();//GenerateUniqueStringID();
+					long uniqueID = GenUniqueGUID();
 					
 					uniqueIDField.SetValue(node, uniqueID);
 				}
@@ -193,5 +198,6 @@ namespace BevTree
 				return null;
 			}
 		}
+
 	}
 }
