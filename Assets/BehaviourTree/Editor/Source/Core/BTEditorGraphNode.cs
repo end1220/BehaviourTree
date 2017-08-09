@@ -469,6 +469,21 @@ namespace BevTreeEditor
 					}
 				}
 			}
+			if (m_node is RunBehaviourIndex)
+			{
+				RunBehaviourIndex rb = (RunBehaviourIndex)m_node;
+				if (rb.SubTreeIndex >= 0)
+				{
+					if (BTEditorCanvas.Current.IsDebuging && rb.BehaviourTree != null)
+					{
+						BehaviourTreeEditor.OpenIndexSubtreeDebug(rb.SubTreeIndex, rb.BehaviourTree);
+					}
+					else
+					{
+						BehaviourTreeEditor.OpenIndexSubtree(rb.SubTreeIndex);
+					}
+				}
+			}
 			else if(m_node is NodeGroup)
 			{
 				if(IsRoot)

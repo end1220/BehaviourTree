@@ -140,7 +140,7 @@ namespace BevTree
 		}
 
 
-		protected virtual void OnInit() { }
+		protected virtual void OnInit(BTAsset asset) { }
 
 		protected virtual void OnOpen(Context context) { }
 
@@ -153,9 +153,9 @@ namespace BevTree
 		protected abstract RunningStatus OnTick(Context context);
 
 
-		public void _init()
+		public void _init(BTAsset asset)
 		{
-			OnInit();
+			OnInit(asset);
 		}
 
 

@@ -59,11 +59,11 @@ namespace BevTree
 		}
 
 
-		protected override void OnInit()
+		protected override void OnInit(BTAsset asset)
 		{
 			for (int i = 0; i < m_children.Count; i++)
 			{
-				m_children[i]._init();
+				m_children[i]._init(asset);
 			}
 		}
 

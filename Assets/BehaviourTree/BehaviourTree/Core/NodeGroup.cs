@@ -1,7 +1,7 @@
 ﻿
 namespace BevTree
 {
-	//[AddNodeMenu("Utility/Node Group")]
+	[AddNodeMenu("Utility/Node Group")]
 	public class NodeGroup : Decorator
 	{
 		protected override RunningStatus OnTick(Context context)

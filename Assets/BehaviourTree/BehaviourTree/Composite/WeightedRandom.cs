@@ -10,13 +10,13 @@ namespace BevTree
 		private float[] m_weights;
 
 
-		protected override void OnInit()
+		protected override void OnInit(BTAsset asset)
 		{
 			m_weights = new float[m_children.Count];
 
 			for (int i = 0; i < m_children.Count; i++)
 			{
-				m_children[i]._init();
+				m_children[i]._init(asset);
 				m_weights[i] = m_children[i].Weight;
 			}
 		}

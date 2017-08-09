@@ -1,5 +1,5 @@
 
-using System.Collections;
+
 using System.Collections.Generic;
 using BevTree.Serialization;
 
@@ -80,10 +80,10 @@ namespace BevTree
 		}
 
 
-		public void Init()
+		public void Init(BTAsset asset)
 		{
 			if (root != null)
-				root._init();
+				root._init(asset);
 		}
 
 

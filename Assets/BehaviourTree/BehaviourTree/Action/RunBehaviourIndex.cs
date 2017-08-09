@@ -4,22 +4,12 @@ using BevTree.Serialization;
 
 namespace BevTree
 {
-	[AddNodeMenu("Action/Util/RunBehaviour")]
-	public class RunBehaviour : Action
+	[AddNodeMenu("Action/Util/RunBehaviourIndex")]
+	public class RunBehaviourIndex : Action
 	{
-		[BTProperty("BehaviourTreeID")]
-		[BTHideInInspector]
-		private string m_behaviourTreeID;
+		public int SubTreeIndex = -1;
 
-		private BTAsset m_behaviourTreeAsset;
 		private BehaviourTree m_behaviourTree;
-
-		[BTIgnore]
-		public BTAsset BehaviourTreeAsset
-		{
-			get { return m_behaviourTreeAsset; }
-			set { m_behaviourTreeAsset = value; }
-		}
 
 		[BTIgnore]
 		public BehaviourTree BehaviourTree
@@ -34,30 +24,25 @@ namespace BevTree
 		public override void OnBeforeSerialize(BTAsset btAsset)
 		{
 			base.OnBeforeSerialize(btAsset);
-
-			if(string.IsNullOrEmpty(m_behaviourTreeID))
-			{
-				m_behaviourTreeID = BTUtils.GenerateUniqueStringID();
-			}
-
-			btAsset.SetSubtreeAsset(m_behaviourTreeID, m_behaviourTreeAsset);
 		}
 
 		public override void OnAfterDeserialize(BTAsset btAsset)
 		{
 			base.OnAfterDeserialize(btAsset);
-
-			m_behaviourTreeAsset = btAsset.GetSubtreeAsset(m_behaviourTreeID);
 		}
 
 		protected override void OnInit(BTAsset asset)
 		{
-			if (m_behaviourTreeAsset != null)
+			if(SubTreeIndex >= 0)
 			{
-				m_behaviourTree = m_behaviourTreeAsset.CreateRuntimeTree();
-				if(m_behaviourTree != null)
+				if (asset is RootTreeAsset)
 				{
-					m_behaviourTree.Root._init(asset);
+					RootTreeAsset rootAsset = asset as RootTreeAsset;
+					m_behaviourTree = rootAsset.CreateRuntimeSubTree(SubTreeIndex);
+					if (m_behaviourTree != null)
+					{
+						m_behaviourTree.Root._init(asset);
+					}
 				}
 			}
 		}

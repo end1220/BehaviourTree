@@ -3,7 +3,10 @@ using System.Collections.Generic;
 
 namespace BevTree
 {
-	[CreateAssetMenu(menuName = "Behaviour Tree", order = 1)]
+	/// <summary>
+	/// Sub Behaviour Tree Asset
+	/// </summary>
+	[CreateAssetMenu(menuName = "Behaviour Tree/Sub Tree", order = 2)]
 	public class BTAsset : ScriptableObject
 	{
 		[System.Serializable]
@@ -15,15 +18,22 @@ namespace BevTree
 
 		[SerializeField]
 		[HideInInspector]
-		private string m_serializedData;
+		protected string m_serializedData;
+
+		public string SerializedData { get { return m_serializedData; } }
+
 		[SerializeField]
 		private Rect m_canvasArea;
+
 		[SerializeField]
 		private Vector2 m_canvasPosition;
+
 		[SerializeField]
 		private List<AssetIDPair> m_subtrees;
+
 		[SerializeField]
 		private string treeUidString;
+
 		public string TreeUidString { get { return treeUidString; } }
 
 		public string title;
@@ -31,7 +41,7 @@ namespace BevTree
 		public string description;
 
 		// 记录的序列化前的文件名，当复制此文件时可根据文件名不一致而重新生成tree uid（uid一定不能相同）。
-		private string lastFileName;
+		protected string lastFileName;
 
 
 #if UNITY_EDITOR
@@ -80,7 +90,7 @@ namespace BevTree
 			}
 		}
 
-		public BehaviourTree GetEditModeTree()
+		public virtual BehaviourTree GetEditModeTree()
 		{
 			string nm = this.name;
 			if(m_editModeTree == null)
@@ -98,7 +108,7 @@ namespace BevTree
 			return m_editModeTree;
 		}
 
-		public void Serialize()
+		public virtual void Serialize()
 		{
 			if(m_editModeTree != null)
 			{
@@ -118,13 +128,13 @@ namespace BevTree
 			}
 		}
 
-		public void Dispose()
+		public virtual void Dispose()
 		{
 			m_editModeTree = null;
 		}
 #endif
 
-		public BehaviourTree CreateRuntimeTree()
+		public virtual BehaviourTree CreateRuntimeTree()
 		{
 			BehaviourTree tree = BTUtils.DeserializeTree(m_serializedData);
 			if(tree == null)

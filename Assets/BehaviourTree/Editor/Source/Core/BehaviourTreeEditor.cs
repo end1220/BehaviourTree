@@ -8,8 +8,12 @@ namespace BevTreeEditor
 	{
 		[SerializeField]
 		private Texture m_gridTexture;
+
 		[SerializeField]
 		private BTAsset m_btAsset;
+
+		static private RootTreeAsset m_rootTreeAsset;
+
 		[SerializeField]
 		private BTNavigationHistory m_navigationHistory;
 
@@ -24,7 +28,11 @@ namespace BevTreeEditor
 			get { return m_navigationHistory; }
 		}
 
-		
+		public static RootTreeAsset rootTreeAsset
+		{
+			get { return m_rootTreeAsset; }
+		}
+
 
 		private void OnEnable()
 		{
@@ -89,6 +97,8 @@ namespace BevTreeEditor
 					m_btAsset.Dispose();
 				}
 
+				m_rootTreeAsset = null;
+
 				EditorApplication.playmodeStateChanged -= HandlePlayModeChanged;
 				m_isDisposed = true;
 			}
@@ -109,6 +119,8 @@ namespace BevTreeEditor
 				if(behaviourTree != null)
 				{
 					m_btAsset = asset;
+					if (asset is RootTreeAsset)
+						m_rootTreeAsset = asset as RootTreeAsset;
 					m_graph.SetBehaviourTree(asset, behaviourTree);
 					m_canvas.Area = m_btAsset.CanvasArea;
 					
@@ -138,6 +150,9 @@ namespace BevTreeEditor
 			if(asset != null && btInstance != null && (clearNavigationHistory || asset != m_btAsset || !m_canvas.IsDebuging))
 			{
 				m_btAsset = asset;
+				if (asset is RootTreeAsset)
+					m_rootTreeAsset = asset as RootTreeAsset;
+
 				m_graph.SetBehaviourTree(asset, btInstance);
 				m_canvas.Area = m_btAsset.CanvasArea;
 
@@ -400,6 +415,24 @@ namespace BevTreeEditor
 			window.SetBTAssetDebug(btAsset, btInstance, false);
 		}
 
+		public static void OpenIndexSubtree(int index)
+		{
+			BTAsset btAsset = GetIndexedSubTreeAsset(index);
+			if (btAsset == null)
+				return;
+			BehaviourTreeEditor window = EditorWindow.GetWindow<BehaviourTreeEditor>(TitleName());
+			window.SetBTAsset(btAsset, false);
+		}
+
+		public static void OpenIndexSubtreeDebug(int index, BehaviourTree btInstance)
+		{
+			BTAsset btAsset = GetIndexedSubTreeAsset(index);
+			if (btAsset == null)
+				return;
+			BehaviourTreeEditor window = EditorWindow.GetWindow<BehaviourTreeEditor>(TitleName());
+			window.SetBTAssetDebug(btAsset, btInstance, false);
+		}
+
 		[UnityEditor.Callbacks.OnOpenAsset(0)]
 		private static bool OnOpenBTAsset(int instanceID, int line)
 		{
@@ -413,6 +446,15 @@ namespace BevTreeEditor
 			return false;
 		}
 
+		public static BTAsset GetIndexedSubTreeAsset(int index)
+		{
+			if (m_rootTreeAsset == null)
+				return null;
+			if (index < 0 || index >= m_rootTreeAsset.IndexedSubTrees.Length)
+				return null;
+			return m_rootTreeAsset.IndexedSubTrees[index];
+		}
+
 
 		// Debugging behaviours of selected actor.
 		private void SetupBTDebugging()
@@ -422,7 +464,6 @@ namespace BevTreeEditor
 			{
 				OpenDebug(m_btAsset, tree);
 			}
-
 		}
 
 

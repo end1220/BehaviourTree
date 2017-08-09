@@ -37,11 +37,11 @@ namespace BevTree
 			return m_child;
 		}
 
-		protected override void OnInit()
+		protected override void OnInit(BTAsset asset)
 		{
 			if (m_child != null)
 			{
-				m_child._init();
+				m_child._init(asset);
 			}
 		}
 

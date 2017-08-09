@@ -685,7 +685,7 @@ namespace BevTreeEditor
 					tex = m_failIcon;
 				else if (node is Succeed)
 					tex = m_succeedIcon;
-				else if (node is RunBehaviour)
+				else if (node is RunBehaviour || node is RunBehaviourIndex)
 					tex = m_runBevTreeIcon;
 				else if (node is Wait)
 					tex = m_waitIcon;
