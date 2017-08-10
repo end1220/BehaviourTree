@@ -59,18 +59,19 @@ namespace BevTree
 			m_succeedOnAny = false;
 			m_failOnTie = true;
 		}
-		
+
+
+		protected override void OnOpen(Context context)
+		{
+			for (int i = 0; i < m_children.Count; i++)
+			{
+				context.blackboard.SetInt(context.tree.guid, m_children[i].guid, "Status", (int)RunningStatus.None);
+			}
+		}
+
 
 		protected override RunningStatus OnTick(Context context)
 		{
-			/*for (int i = 0; i < m_children.Count; ++i)
-			{
-				RunningStatus ret = m_children[i]._tick(context);
-				if (ret != RunningStatus.Running)
-					return ret;
-			}
-
-			return RunningStatus.Running;*/
 			RunningStatus status = RunningStatus.Success;
 			int numberOfFailures = 0;
 			int numberOfSuccesses = 0;
