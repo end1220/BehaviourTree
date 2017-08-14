@@ -11,25 +11,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5baa0511ea3ffc04fa162de9e1771bab, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  m_serializedData: '{"$type":"BevTree.BehaviourTree, Assembly-CSharp","guidString":"2a1670fa4f934f8ca6127dda1bbcc28a","title":"","description":"","Root":{"Position":{"x":0,"y":0},"Comment":null,"Weight":0,"Breakpoint":"None","Child":{"$type":"BevTree.Sequence,
+  m_serializedData: '{"$type":"BevTree.BehaviourTree, Assembly-CSharp","guidString":"52b1abf5d09648a2a8c06adaa124a62e","title":"","description":"","Root":{"Position":{"x":0,"y":0},"Comment":null,"Weight":0,"Breakpoint":"None","Child":{"$type":"BevTree.Sequence,
     Assembly-CSharp","Position":{"x":150,"y":0},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.Selector,
     Assembly-CSharp","Position":{"x":330,"y":-40},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.DebugLog,
-    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":500,"y":-150},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]},{"$type":"BevTree.Succeed,
-    Assembly-CSharp","Position":{"x":640,"y":-10},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5344793794909573149","Constraints":[],"Services":[]}],"__UniqueID":"4888412516821551425","Constraints":[{"$type":"BevTree.FALSE,
+    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":500,"y":-150},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5679618656864699546","Constraints":[],"Services":[]},{"$type":"BevTree.Succeed,
+    Assembly-CSharp","Position":{"x":640,"y":-10},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"4942528813645707169","Constraints":[],"Services":[]}],"__UniqueID":"5526113189895140077","Constraints":[{"$type":"BevTree.FALSE,
     Assembly-CSharp","IsExpanded":true,"InvertResult":false},{"$type":"BevTree.TRUE,
     Assembly-CSharp","IsExpanded":true,"InvertResult":false},{"$type":"BevTree.FALSE,
     Assembly-CSharp","IsExpanded":true,"InvertResult":false}],"Services":[]},{"$type":"BevTree.Random,
     Assembly-CSharp","Position":{"x":320,"y":130},"Comment":null,"Weight":0,"Breakpoint":"None","Children":[{"$type":"BevTree.Fail,
-    Assembly-CSharp","Position":{"x":540,"y":70},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"4858938836667689278","Constraints":[],"Services":[]},{"$type":"BevTree.DebugLog,
-    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":540,"y":330},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5040492706286402256","Constraints":[],"Services":[]}],"__UniqueID":"5114158346315369709","Constraints":[],"Services":[]}],"__UniqueID":"5347131604812780483","Constraints":[],"Services":[]},"__UniqueID":"5699154588342663963","Constraints":[],"Services":[]}}'
+    Assembly-CSharp","Position":{"x":540,"y":70},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"4629613302995414711","Constraints":[],"Services":[]},{"$type":"BevTree.DebugLog,
+    Assembly-CSharp","Level":"Info","Message":null,"Position":{"x":540,"y":330},"Comment":null,"Weight":0,"Breakpoint":"None","__UniqueID":"5391757542560998846","Constraints":[],"Services":[]}],"__UniqueID":"4741676372954767368","Constraints":[],"Services":[]}],"__UniqueID":"5576827347882831758","Constraints":[],"Services":[]},"__UniqueID":"4909029067733678266","Constraints":[],"Services":[]}}'
   m_canvasArea:
     serializedVersion: 2
     x: -500
     y: -500
-    width: 1774
-    height: 1238
-  m_canvasPosition: {x: 9, y: 296}
+    width: 2406
+    height: 1624
+  m_canvasPosition: {x: 351, y: 386}
   m_subtrees: []
-  treeUidString: 2a1670fa4f934f8ca6127dda1bbcc28a
+  treeUidString: 52b1abf5d09648a2a8c06adaa124a62e
   title: 
   description: 
