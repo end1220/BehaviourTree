@@ -34,7 +34,7 @@ namespace BevTreeEditor
 		protected void DrawDefaultProperties()
 		{
 			// show reference of class.
-			string reference = BTConstraintHelpBoxFactory.GetHelpString(m_target);
+			string reference = BTNodeHelpBoxFactory.GetHelpString(m_target);
 			if (!string.IsNullOrEmpty(reference))
 			{
 				EditorGUILayout.LabelField(reference, BTEditorStyle.HelpBox);

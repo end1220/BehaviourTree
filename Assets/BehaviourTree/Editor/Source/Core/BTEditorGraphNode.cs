@@ -322,6 +322,14 @@ namespace BevTreeEditor
 				
 				GUI.DrawTexture(imgPosition, BTEditorStyle.Breakpoint);
 			}
+
+			// show obsolete icon
+			if (BTNodeObsoleteFactory.IsObsolete(m_node))
+			{
+				int obsSize = 24;
+				Rect obsoletePos = new Rect(position.x + nodeSize.x - obsSize - 5, position.y + 5, obsSize, obsSize);
+				GUI.DrawTexture(obsoletePos, BTEditorStyle.WarningIcon);
+			}
 		}
 
 		private void DrawChildren()
@@ -380,7 +388,7 @@ namespace BevTreeEditor
 
 					Rect headerPos = position;
 					headerPos.y += nodeSize.y + i * 16 + constraintOffsetY;
-					Rect labelPos = new Rect(headerPos.x, headerPos.y, position.width + 50, 16);
+					Rect labelPos = new Rect(headerPos.x, headerPos.y, position.width + 100, 16);
 
 					string str = "";
 					if (bits != -1 && !lastFailed)
@@ -403,6 +411,23 @@ namespace BevTreeEditor
 					EditorGUI.LabelField(labelPos, str, BTEditorStyle.NodeConstraintLabel);
 				}
 			}
+
+			// show obsolete icon
+			if (!BTNodeObsoleteFactory.IsObsolete(m_node))
+			{
+				for (int i = 0; i < m_node.Constraints.Count; i++)
+				{
+					Constraint constraint = m_node.Constraints[i];
+					if (BTNodeObsoleteFactory.IsObsolete(constraint))
+					{
+						int obsSize = 24;
+						Rect obsoletePos = new Rect(position.x + nodeSize.x - obsSize - 5, position.y + 5, obsSize, obsSize);
+						GUI.DrawTexture(obsoletePos, BTEditorStyle.WarningIcon);
+						break;
+					}
+				}
+			}
+
 		}
 
 		public void OnSelected()

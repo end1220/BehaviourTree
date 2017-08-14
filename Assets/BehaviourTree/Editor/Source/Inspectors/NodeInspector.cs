@@ -67,6 +67,15 @@ namespace BevTreeEditor
 			GUILayout.Space(2.5f);
 			DrawSeparator();
 
+			// show obsolete tip
+			if (BTNodeObsoleteFactory.IsObsolete(m_target))
+			{
+				string tip = BTNodeObsoleteFactory.GetTipString(m_target);
+				EditorGUILayout.HelpBox(tip, MessageType.Warning);
+				GUILayout.Space(2.5f);
+				DrawSeparator();
+			}
+
 			// show reference of class.
 			string reference = BTNodeHelpBoxFactory.GetHelpString(m_target);
 			if (!string.IsNullOrEmpty(reference))
@@ -259,6 +268,15 @@ namespace BevTreeEditor
 				{
 					var constraintInspector = GetConstraintInspector(constraint);
 					constraintInspector.OnInspectorGUI();
+				}
+
+				// show obsolete tip
+				if (BTNodeObsoleteFactory.IsObsolete(constraint))
+				{
+					string tip = BTNodeObsoleteFactory.GetTipString(constraint);
+					EditorGUILayout.HelpBox(tip, MessageType.Warning);
+					GUILayout.Space(2.5f);
+					DrawSeparator();
 				}
 
 				DrawSeparator();

@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿
 using System;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 using BevTree;
+
 
 namespace BevTreeEditor
 {
@@ -27,9 +27,18 @@ namespace BevTreeEditor
 					m_nodeReferences.Add(new Tuple<Type, string>(type, attribute.Reference));
 				}
 			}
+			foreach (Type type in assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(Constraint))))
+			{
+				object[] attributes = type.GetCustomAttributes(typeof(NodeHelpBoxAttribute), false);
+				if (attributes.Length > 0)
+				{
+					NodeHelpBoxAttribute attribute = attributes[0] as NodeHelpBoxAttribute;
+					m_nodeReferences.Add(new Tuple<Type, string>(type, attribute.Reference));
+				}
+			}
 		}
 
-		public static string GetHelpString(BehaviourNode node)
+		public static string GetHelpString(System.Object node)
 		{
 			foreach (var item in m_nodeReferences)
 			{
@@ -38,7 +47,7 @@ namespace BevTreeEditor
 					return item.Item2;
 				}
 			}
-			return "";// node.GetType().Name;
+			return "";
 		}
 
 

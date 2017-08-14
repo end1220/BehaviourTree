@@ -43,6 +43,10 @@ namespace BevTree
 					{
 						m_behaviourTree.Root._init(asset);
 					}
+					else
+					{
+						UnityEngine.Debug.LogError("RunBehaviourIndex.OnInit: CreateRuntimeSubTree failed!!");
+					}
 				}
 			}
 		}

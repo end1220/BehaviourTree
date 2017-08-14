@@ -12,16 +12,4 @@ namespace BevTree
 		}
 	}
 
-
-	public class ConstraintHelpBoxAttribute : Attribute
-	{
-		public readonly string Reference;
-
-		public ConstraintHelpBoxAttribute(string reference)
-		{
-			Reference = reference;
-		}
-	}
-
-
 }

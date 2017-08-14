@@ -14,6 +14,7 @@ namespace BevTreeEditor
 		private static Texture m_breakpoint;
 		private static Texture m_optionsIcon;
 		private static Texture m_treeInfoIcon;
+		private static Texture m_warningIcon;
 
 		// icon of nodes
 		private static Texture m_defaultNodeIcon;
@@ -107,6 +108,14 @@ namespace BevTreeEditor
 			get
 			{
 				return m_treeInfoIcon;
+			}
+		}
+
+		public static Texture WarningIcon
+		{
+			get
+			{
+				return m_warningIcon;
 			}
 		}
 
@@ -295,29 +304,22 @@ namespace BevTreeEditor
 		private static void LoadTextures()
 		{
 			if(m_arrowUp == null)
-			{
 				m_arrowUp = Resources.Load<Texture>("BevTree/EditorGUI/arrow_2_up");
-			}
 
 			if(m_arrowDown == null)
-			{
 				m_arrowDown = Resources.Load<Texture>("BevTree/EditorGUI/arrow_2_down");
-			}
 
 			if(m_breakpoint == null)
-			{
 				m_breakpoint = Resources.Load<Texture>("BevTree/EditorGUI/breakpoint");
-			}
 
 			if(m_optionsIcon == null)
-			{
 				m_optionsIcon = Resources.Load<Texture>("BevTree/EditorGUI/options_icon");
-			}
 
 			if (m_treeInfoIcon == null)
-			{
 				m_treeInfoIcon = Resources.Load<Texture>("BevTree/EditorGUI/treeinfo_icon");
-			}
+
+			if (m_warningIcon == null)
+				m_warningIcon = Resources.Load<Texture>("BevTree/EditorGUI/warn");
 
 			// icon of nodes
 			if (m_defaultNodeIcon == null)
