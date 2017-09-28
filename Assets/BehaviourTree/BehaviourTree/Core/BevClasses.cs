@@ -70,7 +70,7 @@ namespace BevTree
 
 	class RandomGen
 	{
-		private static System.Random rnd = new System.Random(666);
+		private static System.Random rnd = new System.Random(3695);
 
 		/// <summary>
 		/// get a random integer in [min, max].

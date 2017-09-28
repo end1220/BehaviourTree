@@ -69,7 +69,7 @@ namespace BevTreeEditor
 			EditorApplication.playmodeStateChanged += HandlePlayModeChanged;
 
 			// debugging
-			Selection.selectionChanged = delegate { SetupBTDebugging(); };
+			Selection.selectionChanged += delegate { SetupBTDebugging(); };
 		}
 
 		private void OnDisable()
@@ -95,11 +95,15 @@ namespace BevTreeEditor
 				{
 					SaveBehaviourTree();
 					m_btAsset.Dispose();
+					m_btAsset = null;
 				}
 
 				m_rootTreeAsset = null;
 
 				EditorApplication.playmodeStateChanged -= HandlePlayModeChanged;
+
+				Selection.selectionChanged -= delegate { SetupBTDebugging(); };
+
 				m_isDisposed = true;
 			}
 		}
@@ -391,10 +395,16 @@ namespace BevTreeEditor
 			return "BehaviourTree";
 		}
 
-		public static void Open(BTAsset behaviourTree)
+		public static void Open(BTAsset asset)
 		{
 			BehaviourTreeEditor window = EditorWindow.GetWindow<BehaviourTreeEditor>(TitleName());
-			window.SetBTAsset(behaviourTree, true);
+			window.SetBTAsset(asset, true);
+
+			BehaviourTree btInstance;
+			if (BTDebugHelper.CheckDebugOpen(asset.TreeUidString, out btInstance))
+				window.SetBTAssetDebug(asset, btInstance, true);
+			else
+				window.SetBTAsset(asset, true);
 		}
 
 		public static void OpenDebug(BTAsset btAsset, BehaviourTree btInstance)
@@ -459,6 +469,9 @@ namespace BevTreeEditor
 		// Debugging behaviours of selected actor.
 		private void SetupBTDebugging()
 		{
+			if (m_btAsset == null)
+				return;
+
 			BehaviourTree tree = BTDebugHelper.TrySelectedObjectDebugging(m_btAsset.TreeUidString);
 			if (tree != null)
 			{

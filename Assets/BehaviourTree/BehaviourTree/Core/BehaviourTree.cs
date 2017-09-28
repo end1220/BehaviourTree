@@ -46,6 +46,8 @@ namespace BevTree
 		[BTIgnore]
 		public bool ReadOnly { get; set; }
 
+		[BTIgnore]
+		public BTAsset btAsset;
 
 
 		public BehaviourTree()
@@ -66,6 +68,7 @@ namespace BevTree
 			title = inst.title;
 			description = inst.description;
 			root = inst.root;
+			btAsset = inst.btAsset;
 			ReadOnly = inst.ReadOnly;
 		}
 
@@ -82,6 +85,7 @@ namespace BevTree
 
 		public void Init(BTAsset asset)
 		{
+			btAsset = asset;
 			if (root != null)
 				root._init(asset);
 		}
